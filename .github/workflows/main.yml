@@ -1,0 +1,38 @@
+name: Node.js CI
+
+# 1. Quando rodar? (Gatilhos)
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+# 2. O que fazer? (Jobs)
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [18.x, 20.x]
+        # Testa nas versões 18 e 20 do Node para garantir compatibilidade
+
+    steps:
+    # Passo A: Baixa seu código
+    - uses: actions/checkout@v4
+
+    # Passo B: Instala o Node.js
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v4
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'npm'
+
+    # Passo C: Instala as dependências (limpo e rápido)
+    - run: npm ci
+
+    # Passo D: Se tiver script de build, roda ele
+    - run: npm run build --if-present
+
+    # Passo E: Roda os testes
+    - run: npm test
