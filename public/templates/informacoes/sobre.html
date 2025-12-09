@@ -1,25 +1,68 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <title>Sobre Nós - FBFMP</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="/styles/img/favicon.svg" type="image/x-icon">    
+    <link rel="shortcut icon" href="/styles/img/favicon.svg" type="image/x-icon">
     <link rel="stylesheet" href="/styles/style.css">
 </head>
+
 <body>
 
     <div id="header-placeholder"></div>
 
     <main>
-        <h1>Sobre Nós</h1>
-        <p>Bem-vindo à página de informações sobre nossa empresa. Aqui você pode descrever a história, a missão e a visão do seu projeto.</p>
-        <p>Este conteúdo está vindo do arquivo <strong>/public/templates/informacoes/sobre.html</strong> e é servido pela sua rota /sobre.</p>
+        <h1>Sobre o começo do projeto</h1>
+        <p>Conheça um pouco mais sobre a nossa jornada e objetivos.</p>
+
+        <div class="sobre-container">
+
+            <section class="sobre-item">
+                <div class="sobre-img">
+                    <img src="/styles/img/logo.svg" alt="">
+                </div>
+                <div class="sobre-texto">
+                    <h2>Nossa História</h2>
+                    <p>
+                        Tudo começou com uma pequena ideia de organizar o conhecimento.
+                        A ideia começou com o projeto "The Books On The Web" onde surgiu a vontade de facilitar o acesso
+                        à leitura e promover a cultura de leitura de forma digital e acessível.
+                        Hoje o projeto continua, trazendo livros filtrados que possam trazer conhecimento por um preço justo e razoavel.
+                    </p>
+                    <p>
+                        Desde setembro de 2025, trabalhamos incansavelmente para catalogar obras
+                        e conectar leitores aos seus autores favoritos. De partida foi possuimos um acerco de livros de obras educacionais, mas sendo possivel também trazer mais livros para entretenimento
+                    </p>
+                </div>
+            </section>
+
+            <section class="sobre-item reverso">
+                <div class="sobre-img">
+                    <img src="https://via.placeholder.com/500x350" alt="Livros organizados">
+                </div>
+                <div class="sobre-texto">
+                    <h2>Nossa Missão</h2>
+                    <p>
+                        Acreditamos que a educação é a chave para o futuro. Nossa missão
+                        é democratizar o acesso à informação, oferecendo uma plataforma
+                        robusta, rápida e fácil de usar.
+                    </p>
+                    <ul>
+                        <li>✔ Acesso rápido ao acervo</li>
+                        <li>✔ Incentivo à leitura</li>
+                        <li>✔ Tecnologia de ponta</li>
+                    </ul>
+                </div>
+            </section>
+
+        </div>
     </main>
 
     <div id="footer-placeholder"></div>
 
-    <!-- O script.js também usará o caminho absoluto e carregará o header/footer corretamente -->
     <script src="/scripts/script.js" defer></script>
 </body>
+
 </html>
