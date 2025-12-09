@@ -7,7 +7,7 @@ const __dirname = path.dirname(__filename);
 class GuiaControler {
     static guiaCaminho(nomeArquivo) {
         return (req, res) => {
-            const caminhoCompleto = path.join(__dirname, '..', '..', '..', 'public', nomeArquivo);
+            const caminhoCompleto = path.join(__dirname, '..', '..', 'public', nomeArquivo);
             res.sendFile(caminhoCompleto, (erro) => {
                 if (erro) {
                     console.log("Erro ao enviar arquivo:", erro);
