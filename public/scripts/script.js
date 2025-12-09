@@ -22,8 +22,6 @@ document.addEventListener("DOMContentLoaded", function() {
             });
     }
 
-    // --- CORREÇÃO AQUI ---
-    // O navegador acessa direto a partir da raiz estática
     const basePath = "/templates/corpos/"; 
     
     loadComponent("#header-placeholder", basePath + "header.html");

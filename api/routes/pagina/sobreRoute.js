@@ -1,5 +1,5 @@
 import express from 'express';
-import GuiaControler from '../../controlers/publicPage/guiasControler.js';
+import GuiaControler from '../../controlers/guiasControler.js';
 
 const routes = express.Router();
 
