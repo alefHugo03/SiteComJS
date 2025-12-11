@@ -1,10 +1,8 @@
-// /validardados
-
 import express from 'express';
-import LivroControler from '../../../controlers/userControler.js'
+import UserControler from '../../../controlers/userControler.js'
 
 const routes = express.Router();
 
-// routes.post('/validardados', UserControler.validarUser)
+routes.get('/teste/users', UserControler.listarUsuarios)
 
 export default routes
