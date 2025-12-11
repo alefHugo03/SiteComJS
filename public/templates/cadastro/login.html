@@ -19,13 +19,14 @@
             <form id="form-login" class="menu">
                 <div class="valor">
                     <label for="emailLogin">Email</label>
-                    <input type="email" id="emailLogin" placeholder="seu@email.com" class="valor-texto" required>
+                    <input type="email" id="emailLogin" placeholder="seu@email.com" class="valor-texto">
+                    <p id="avisoEmail"></p>
                 </div>
 
                 <div class="valor">
                     <label for="senhaLogin">Senha</label>
-                    <input type="password" id="senhaLogin" placeholder="******" class="valor-texto" required>
-
+                    <input type="password" id="senhaLogin" placeholder="******" class="valor-texto">
+                    <p id="avisoSenha"></p>
                     <a href="/cadastro/mudarsenha" class="link-esqueci">Esqueci minha senha</a>
                 </div>
 
@@ -44,6 +45,7 @@
     <footer id="footer-placeholder"></footer>
 
     <script src="/scripts/script.js"></script>
+    <script type="module" src="/scripts/cadastro/loginUsuario.js"></script>
 </body>
 
 </html>

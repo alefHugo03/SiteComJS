@@ -3,6 +3,6 @@ import app from './api/app.js';
 
 const PORT = 3000;
 
-app.listen(PORT, '0.0.0.0',() => {
+app.listen(PORT, () => {
     console.log('Servidor escutando')
 })
