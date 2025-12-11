@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - The Books On The Web</title>
+    <link rel="stylesheet" href="/styles/style.css">
+    <link rel="shortcut icon" href="/styles/img/favicon.svg" type="image/x-icon">
+</head>
+
+<body>
+    <header id="header-placeholder"></header>
+
+    <main>
+        <div class="caixa-menu">
+            <h2>Acessar sua conta</h2>
+
+            <form id="form-login" class="menu">
+                <div class="valor">
+                    <label for="emailLogin">Email</label>
+                    <input type="email" id="emailLogin" placeholder="seu@email.com" class="valor-texto">
+                    <p id="avisoEmail"></p>
+                </div>
+
+                <div class="valor">
+                    <label for="senhaLogin">Senha</label>
+                    <input type="password" id="senhaLogin" placeholder="******" class="valor-texto">
+                    <p id="avisoSenha"></p>
+                    <a href="/cadastro/mudarsenha" class="link-esqueci">Esqueci minha senha</a>
+                </div>
+
+                <p id="msg-erro" class="aviso" style="display: none;"></p>
+
+                <button type="submit" class="btn-menu btn-primary">Entrar</button>
+            </form>
+
+            <div class="rodape-login">
+                <span>Não tem uma conta?</span>
+                <a href="/cadastro/novousuario" class="link-cadastro">Cadastre-se</a>
+            </div>
+        </div>
+    </main>
+
+    <footer id="footer-placeholder"></footer>
+
+    <script src="/scripts/script.js"></script>
+    <script type="module" src="/scripts/cadastro/loginUsuario.js"></script>
+</body>
+
+</html>

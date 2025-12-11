@@ -1,345 +1,143 @@
 /* ==========================================================================
    ARQUIVO: public/styles/style.css
-   DESCRIÇÃO: Estilos principais (Layout, Tipografia, Header, Footer)
+   DESCRIÇÃO: Estilos principais com Variáveis Globais (Completo)
    ========================================================================== */
 
 :root {
-    --cor-header: rgb(41, 40, 40);
-    --cor-fundo: rgb(240, 242, 245);
+    /* --- PALETA DE CORES --- */
+    --cor-destaque: #28a745;        /* Verde Principal */
+    --cor-destaque-hover: #218838;  /* Verde Escuro (Hover) */
+    
+    --cor-header: rgb(41, 40, 40);  /* Fundo do Header Superior */
+    --cor-header-baixo: #333333;    /* Fundo do Menu Inferior */
+    
+    --cor-fundo: rgb(240, 242, 245); /* Fundo da Página */
     --cor-branco: #ffffff;
-    --cor-borda: #ccc;
-    --cor-sucesso: #28a745;
-    --cor-aviso: #ffc107;
+    
+    /* --- TEXTOS --- */
+    --cor-texto-principal: #333333;
+    --cor-texto-medio: #555555;
+    --cor-texto-claro: #666666;
+    --cor-texto-label: #444444;
+    --cor-texto-rodape: #888888;
+    
+    /* --- UI --- */
+    --cor-borda: #dddddd;
+    --cor-divisoria: #eeeeee;
+    --cor-btn-neutro: #e2e6ea;
+    --cor-btn-neutro-hover: #dbe0e5;
+    
+    /* --- STATUS --- */
     --cor-perigo: #dc3545;
-    --cor-texto: #333;
-    --cor-destaque: #28a745;
+    
+    /* --- TRANSPARÊNCIAS --- */
+    --transparencia-branca-fraca: rgba(255, 255, 255, 0.1);
+    --transparencia-branca-forte: rgba(255, 255, 255, 0.3);
 }
 
 /* --- RESET BÁSICO --- */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Segoe UI', Arial, sans-serif;
-}
-
-body {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    background-color: var(--cor-fundo);
-}
-
-a {
-    text-decoration: none;
-    color: inherit;
-}
-
-ul {
-    list-style: none;
-}
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Arial, sans-serif; }
+body { display: flex; flex-direction: column; min-height: 100vh; background-color: var(--cor-fundo); }
+a { text-decoration: none; color: inherit; }
+ul { list-style: none; }
 
 /* --- HEADER (CABEÇALHO) --- */
-header {
-    width: 100%;
-    background-color: var(--cor-header);
-    color: var(--cor-branco);
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+header { width: 100%; background-color: var(--cor-header); color: var(--cor-branco); box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); }
+.header-cima { display: flex; justify-content: space-between; align-items: center; padding: 15px 30px; gap: 20px; }
+
+/* Logo */
+.empresa { display: flex; align-items: center; gap: 15px; }
+.nome-empresa h1 { font-size: 1.2rem; line-height: 1.2; color: var(--cor-branco); }
+.imagem-empresa { width: 45px; background: var(--cor-branco); border-radius: 50%; padding: 2px; }
+
+/* Pesquisa */
+.pesquisa { flex-grow: 1; max-width: 500px; }
+.pesquisar { display: flex; background: var(--cor-branco); border-radius: 4px; overflow: hidden; }
+.input-pesquisa { width: 100%; padding: 8px 15px; border: none; outline: none; }
+.btn-pesquisa { padding: 0 15px; background: #ddd; border: none; cursor: pointer; }
+.btn-pesquisa:hover { background: #ccc; }
+
+/* Botões Header */
+.area-cadastro { display: flex; align-items: center; gap: 15px; }
+.btn-header { padding: 8px 15px; border-radius: 4px; font-size: 0.9rem; font-weight: bold; cursor: pointer; border: 1px solid var(--transparencia-branca-forte); background: var(--transparencia-branca-fraca); color: var(--cor-branco); transition: 0.3s; }
+.btn-header:hover { background: var(--transparencia-branca-forte); }
+.btn-cadastro { padding: 8px 15px; border-radius: 4px; font-size: 0.9rem; font-weight: bold; cursor: pointer; border: 1px solid var(--cor-destaque); background: var(--cor-destaque); color: var(--cor-branco); transition: 0.3s; }
+.btn-cadastro:hover { background: var(--cor-destaque-hover); border-color: var(--cor-destaque-hover); }
+
+/* Menu Inferior */
+.header-baixo { background-color: var(--cor-header-baixo); padding: 10px 0; display: flex; justify-content: center; gap: 20px; }
+.item-menu { color: #ccc; font-weight: 500; padding: 5px 10px; transition: 0.3s; }
+.item-menu:hover { color: var(--cor-branco); text-decoration: underline; }
+
+/* --- MAIN (CONTEÚDO) --- */
+main { flex-grow: 1; padding: 40px 20px; display: flex; flex-direction: column; align-items: center; width: 100%; max-width: 1200px; margin: 0 auto; }
+main h1 { color: var(--cor-texto-principal); margin-bottom: 20px; text-align: center; }
+main > p { color: var(--cor-texto-claro); margin-bottom: 40px; text-align: center; font-size: 1.1rem; max-width: 800px; }
+
+/* --- VITRINE DE LIVROS --- */
+.lista-livros { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 20px; width: 100%; }
+.livro { border: 1px solid var(--cor-borda); padding: 20px; border-radius: 8px; background-color: var(--cor-branco); box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05); transition: transform 0.2s; }
+.livro:hover { transform: translateY(-5px); box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); }
+.livro h2 { font-size: 1.2rem; margin-bottom: 10px; color: var(--cor-destaque); }
+.livro p { font-size: 0.95rem; color: var(--cor-texto-medio); margin-bottom: 5px; text-align: left; }
+
+/* --- PÁGINA "SOBRE" (Feature Row - Versão Atualizada) --- */
+.sobre-container { width: 100%; max-width: 1000px; display: flex; flex-direction: column; gap: 40px; margin-top: 20px; }
+
+.sobre-item { display: flex; background-color: var(--cor-branco); border-radius: 8px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); border: 1px solid var(--cor-borda); align-items: center; padding: 20px; }
+
+/* Área da Imagem (Pequena e com Zoom) */
+.sobre-img { flex: 1; max-height: 300px; display: flex; justify-content: center; align-items: center; padding: 15px; }
+
+.sobre-img img { width: auto; height: auto; max-width: 100%; max-height: 280px; object-fit: contain; border-radius: 8px; transition: transform 0.4s ease; display: block; }
+.sobre-img img:hover { transform: scale(1.05); cursor: pointer; }
+
+/* Área do Texto */
+.sobre-texto { flex: 1; padding: 30px; text-align: left; }
+.sobre-texto h2 { color: var(--cor-destaque); margin-bottom: 15px; font-size: 1.5rem; }
+.sobre-texto p { color: var(--cor-texto-medio); margin-bottom: 15px; line-height: 1.6; text-align: left !important; }
+.sobre-texto ul li { color: var(--cor-texto-claro); margin-bottom: 8px; }
+.sobre-item.reverso { flex-direction: row-reverse; }
+
+@media (max-width: 768px) {
+    .sobre-item, .sobre-item.reverso { flex-direction: column; }
+    .sobre-img { width: 100%; min-height: 250px; }
+    .sobre-texto { padding: 25px; }
 }
 
-.header-cima {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 30px;
-    gap: 20px;
-}
+/* --- FORMULÁRIOS (Login/Cadastro) --- */
+.caixa-menu, .cadastro-menu { background: var(--cor-branco); padding: 30px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); width: 100%; max-width: 400px; margin: 20px auto; }
+.caixa-menu h2, .cadastro-menu h2 { margin-bottom: 20px; color: var(--cor-texto-principal); border-bottom: 2px solid var(--cor-destaque); padding-bottom: 10px; }
+.menu { display: flex; flex-direction: column; gap: 15px; }
 
-/* Logo e Nome */
-.empresa {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-}
+.valor label { font-weight: 600; font-size: 0.9rem; color: var(--cor-texto-label); margin-bottom: 5px; display: block; }
+.valor-texto { padding: 10px; border: 1px solid var(--cor-borda); border-radius: 5px; font-size: 0.95rem; width: 100%; }
+.valor-texto:focus { border-color: var(--cor-destaque); outline: none; }
 
-.nome-empresa h1 {
-    font-size: 1.2rem;
-    line-height: 1.2;
-    color: var(--cor-branco);
-}
+/* Botões Form */
+.btn-menu { padding: 12px; border: none; border-radius: 5px; font-size: 1rem; font-weight: bold; cursor: pointer; width: 100%; background: var(--cor-btn-neutro); color: var(--cor-texto-principal); transition: 0.2s; }
+.btn-menu:hover { background: var(--cor-btn-neutro-hover); }
+.btn-primary { background: var(--cor-destaque) !important; color: var(--cor-branco) !important; }
+.btn-primary:hover { background: var(--cor-destaque-hover) !important; }
 
-.imagem-empresa {
-    width: 45px;
-    background: white;
-    border-radius: 50%;
-    padding: 2px;
-}
+/* ORGANIZAÇÃO DO LOGIN */
+/* Link "Esqueci minha senha" */
+.link-esqueci { font-size: 0.8rem; color: var(--cor-texto-claro); text-align: right; display: block; margin-top: 5px; margin-bottom: 5px; }
+.link-esqueci:hover { color: var(--cor-destaque); text-decoration: underline; }
 
-/* Barra de Pesquisa */
-.pesquisa {
-    flex-grow: 1;
-    max-width: 500px;
-}
+/* Rodapé do Form (Cadastro separado) */
+.rodape-login { margin-top: 25px; padding-top: 20px; border-top: 1px solid var(--cor-divisoria); text-align: center; font-size: 0.95rem; color: var(--cor-texto-medio); display: flex; justify-content: center; gap: 5px; }
+.link-cadastro { color: var(--cor-destaque); font-weight: 600; }
+.link-cadastro:hover { color: var(--cor-destaque-hover); text-decoration: underline; }
 
-.pesquisar {
-    display: flex;
-    background: white;
-    border-radius: 4px;
-    overflow: hidden;
-}
-
-.input-pesquisa {
-    width: 100%;
-    padding: 8px 15px;
-    border: none;
-    outline: none;
-}
-
-.btn-pesquisa {
-    padding: 0 15px;
-    background: #ddd;
-    border: none;
-    cursor: pointer;
-}
-
-.btn-pesquisa:hover {
-    background: #ccc;
-}
-
-/* Área de Login/Cadastro */
-.area-cadastro {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-}
-
-.saudacao {
-    white-space: nowrap;
-    font-size: 0.95rem;
-    font-weight: 500;
-}
-
-.btn-header,
-.btn-cadastro {
-    padding: 8px 15px;
-    border-radius: 4px;
-    font-size: 0.9rem;
-    font-weight: bold;
-    cursor: pointer;
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    background: rgba(255, 255, 255, 0.1);
-    color: white;
-    transition: 0.3s;
-}
-
-.btn-header:hover,
-.btn-cadastro:hover {
-    background: rgba(255, 255, 255, 0.3);
-}
-
-/* Menu Inferior do Header */
-.header-baixo {
-    background-color: #333;
-    padding: 10px 0;
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-}
-
-.item-menu {
-    color: #ccc;
-    font-weight: 500;
-    padding: 5px 10px;
-    transition: 0.3s;
-}
-
-.item-menu:hover {
-    color: white;
-    text-decoration: underline;
-}
-
-/* --- MAIN (CONTEÚDO PRINCIPAL) --- */
-main {
-    flex-grow: 1;
-    padding: 40px 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-main h1 {
-    color: var(--cor-texto);
-    margin-bottom: 20px;
-    text-align: center;
-}
-
-main > p {
-    color: #666;
-    margin-bottom: 40px;
-    text-align: center;
-    font-size: 1.1rem;
-    max-width: 800px;
-}
-
-/* --- VITRINE DE LIVROS (Para a página livros.html) --- */
-.lista-livros {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 20px;
-    width: 100%;
-}
-
-.livro {
-    border: 1px solid #ddd;
-    padding: 20px;
-    border-radius: 8px;
-    background-color: white;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-    transition: transform 0.2s;
-}
-
-.livro:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-}
-
-.livro h2 {
-    font-size: 1.2rem;
-    margin-bottom: 10px;
-    color: var(--cor-destaque);
-}
-
-.livro p {
-    font-size: 0.95rem;
-    color: #555;
-    margin-bottom: 5px;
-    text-align: left;
-}
-
-/* --- FORMULÁRIOS (Login/Cadastro básicos) --- */
-.caixa-menu,
-.cadastro-menu {
-    background: white;
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    max-width: 400px;
-    margin: 20px auto;
-}
-
-.caixa-menu h2,
-.cadastro-menu h2 {
-    margin-bottom: 20px;
-    color: var(--cor-texto);
-    border-bottom: 2px solid var(--cor-destaque);
-    padding-bottom: 10px;
-}
-
-.menu {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-.valor label {
-    font-weight: 600;
-    font-size: 0.9rem;
-    color: #444;
-    margin-bottom: 5px;
-    display: block;
-}
-
-.valor-texto {
-    padding: 10px;
-    border: 1px solid var(--cor-borda);
-    border-radius: 5px;
-    font-size: 0.95rem;
-    width: 100%;
-}
-
-.valor-texto:focus {
-    border-color: var(--cor-destaque);
-    outline: none;
-}
-
-.btn-menu {
-    padding: 12px;
-    border: none;
-    border-radius: 5px;
-    font-size: 1rem;
-    font-weight: bold;
-    cursor: pointer;
-    width: 100%;
-    background: #e2e6ea;
-    color: #333;
-    transition: 0.2s;
-}
-
-.btn-menu:hover {
-    background: #dbe0e5;
-}
-
-.btn-primary {
-    background: var(--cor-sucesso) !important;
-    color: white !important;
-}
-
-.btn-primary:hover {
-    background: #218838 !important;
-}
-
-/* Mensagens de Erro Simples */
-.aviso {
-    color: var(--cor-perigo);
-    font-size: 0.85rem;
-    margin-top: 5px;
-    font-weight: 600;
-}
+/* Mensagens de Erro */
+.aviso { color: var(--cor-perigo); font-size: 0.9rem; margin-top: 10px; font-weight: 600; text-align: center; }
 
 /* --- PAGINAÇÃO --- */
-.paginacao-container {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    margin-top: 40px;
-}
-
-.paginacao {
-    display: flex;
-    gap: 8px;
-}
-
-.btn-pag {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 35px;
-    height: 35px;
-    border-radius: 50%;
-    background: white;
-    border: 1px solid #ddd;
-    cursor: pointer;
-    transition: 0.2s;
-}
-
-.btn-pag:hover {
-    background-color: var(--cor-destaque);
-    color: white;
-    border-color: var(--cor-destaque);
-}
+.paginacao-container { width: 100%; display: flex; justify-content: center; margin-top: 40px; }
+.paginacao { display: flex; gap: 8px; }
+.btn-pag { display: flex; align-items: center; justify-content: center; width: 35px; height: 35px; border-radius: 50%; background: var(--cor-branco); border: 1px solid var(--cor-borda); cursor: pointer; transition: 0.2s; }
+.btn-pag:hover { background-color: var(--cor-destaque); color: var(--cor-branco); border-color: var(--cor-destaque); }
 
 /* --- RODAPÉ --- */
-.caixa-footer {
-    text-align: center;
-    padding: 20px;
-    color: #888;
-    font-size: 0.9rem;
-    background: white;
-    border-top: 1px solid #eee;
-    margin-top: auto;
-    width: 100%;
-}
+.caixa-footer { text-align: center; padding: 20px; color: var(--cor-texto-rodape); font-size: 0.9rem; background: var(--cor-branco); border-top: 1px solid var(--cor-divisoria); margin-top: auto; width: 100%; }
